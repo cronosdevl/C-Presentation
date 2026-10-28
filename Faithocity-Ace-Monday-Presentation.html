@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faithocity MVP — Ace King Mengote | Individual Assessment</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #f4f1ea;
+      --muted: #9aa8b8;
+      --accent: #c4a574;
+      --accent2: #5b8def;
+      --good: #3d9a6a;
+      --warn: #d4a017;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .deck { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+    .slide {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #2a3548;
+      min-height: 420px;
+      page-break-after: always;
+    }
+    .slide.dark-hero {
+      background: linear-gradient(145deg, #152038 0%, #1a2332 50%, #243018 100%);
+      border-color: #3d4a2e;
+    }
+    h1 { font-size: 1.85rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.45rem; color: var(--accent); margin-bottom: 1rem; font-weight: 650; }
+    h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; color: var(--accent2); }
+    p, li { font-size: 0.98rem; color: var(--text); }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+    .tag {
+      display: inline-block;
+      background: #2a3548;
+      color: var(--accent);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+    li { margin: 0.35rem 0; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+    .box {
+      background: #121820;
+      border: 1px solid #2a3548;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+    }
+    .box strong { display: block; color: var(--accent); margin-bottom: 0.35rem; font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 0.5rem; }
+    th, td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid #2a3548; }
+    th { color: var(--muted); font-weight: 600; }
+    .flow {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.75rem 0;
+    }
+    .flow span {
+      background: #121820; border: 1px solid #3d4a5c; padding: 0.4rem 0.65rem;
+      border-radius: 6px; font-size: 0.82rem;
+    }
+    .flow .arrow { border: none; background: transparent; color: var(--accent); padding: 0; }
+    .nav {
+      position: sticky; top: 0; z-index: 10; background: #0f1419ee;
+      backdrop-filter: blur(8px); padding: 0.75rem 1.5rem; border-bottom: 1px solid #2a3548;
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;
+    }
+    .nav a { color: var(--accent2); text-decoration: none; font-size: 0.85rem; }
+    .nav strong { color: var(--accent); margin-right: auto; font-size: 0.9rem; }
+    .tpl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 0.75rem;
+    }
+    .tpl-card {
+      background: #121820;
+      border: 1px solid #2a3548;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .tpl-card a { color: inherit; text-decoration: none; display: block; }
+    .tpl-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      background: #0a0e14;
+    }
+    .tpl-card .meta { padding: 0.65rem 0.75rem 0.85rem; }
+    .tpl-card .meta strong { display: block; color: var(--accent); font-size: 0.88rem; margin-bottom: 0.25rem; }
+    .tpl-card .meta span { color: var(--muted); font-size: 0.78rem; line-height: 1.35; display: block; }
+    @media print {
+      .nav { display: none; }
+      .slide { break-inside: avoid; min-height: auto; }
+    }
+    @media (max-width: 700px) {
+      .grid2, .grid3, .tpl-grid { grid-template-columns: 1fr; }
+      .tpl-card img { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <strong>Faithocity · Ace · Monday assessment</strong>
+    <a href="#s0">Title</a>
+    <a href="#s1">1 MVP</a>
+    <a href="#s1b">Templates</a>
+    <a href="#s2">2 Build</a>
+    <a href="#s3">3 Flow</a>
+    <a href="#s4">4 Stack</a>
+    <a href="#s5">5 Risks</a>
+    <a href="#s6">6 POCs</a>
+    <a href="#s7">7 Me</a>
+    <a href="#s8">Questions</a>
+    <a href="faithocity-poc/index.html">Open POC →</a>
+  </nav>
+
+  <div class="deck">
+
+    <!-- TITLE -->
+    <section class="slide dark-hero" id="s0">
+      <div class="tag">Individual assessment · Due Monday</div>
+      <h1>Faithocity Church Website Builder</h1>
+      <p style="font-size:1.15rem;margin:0.75rem 0 1.25rem;">MVP plan, build path, and where I contribute</p>
+      <p><strong>Ace King Mengote</strong> · Full-stack · Technology &amp; R&amp;D / SaaS</p>
+      <p class="muted" style="margin-top:0.5rem;">Audience: Melissa · James Brady · Bob Hahn · Ryan</p>
+      <p class="muted" style="margin-top:1.5rem;">Inputs: MVP doc · live church samples · <strong>Sanctuary builder templates</strong> (Cornerstone / Heritage / Riverside) · planning meeting · POC</p>
+      <p class="muted">POC demo: open <code>faithocity-poc/index.html</code> · template images in <code>templates/</code></p>
+    </section>
+
+    <!-- STEP 1 -->
+    <section class="slide" id="s1">
+      <div class="tag">Step 1 of 7</div>
+      <h2>1. My reading of the MVP</h2>
+      <div class="grid2">
+        <div class="box">
+          <strong>Ships in MVP (self-serve)</strong>
+          <ul>
+            <li>Cognito accounts · church Owner/Editor</li>
+            <li>Guided onboarding (easy, no experience)</li>
+            <li>4–6 faith templates · logo → colors</li>
+            <li>Church pages: About, Pastor, Ministries, Events…</li>
+            <li>Easy Button (AI scrape) · readiness checklist · preview</li>
+            <li>Amplify publish · subdomain + CNAME</li>
+            <li>Stripe monthly tiers · SES email · support chatbot (platform only)</li>
+            <li>Basic analytics · AI images with quotas</li>
+          </ul>
+        </div>
+        <div class="box">
+          <strong>Explicitly later / TBD</strong>
+          <ul>
+            <li>Prospect Studio / sales pre-builds at scale</li>
+            <li>Own giving processor (Stripe Connect long-term)</li>
+            <li>Contact &amp; prayer forms (Phase II)</li>
+            <li>Google Maps embed · church public chatbot</li>
+            <li>White-label / affiliates</li>
+            <li>Full custom “Hollo-style” AI site = highest tier idea</li>
+          </ul>
+        </div>
+      </div>
+      <h3>One sentence</h3>
+      <p>Faithocity MVP = an <strong>easy, church-specific website builder</strong> that smaller churches can launch themselves — AI-assisted, Amplify-hosted — as the first brick of a larger church ecosystem.</p>
+      <h3>What live church samples taught me (reference only)</h3>
+      <p class="muted">2cal.org · centralbaptist · rayofhope · csmbc — custom WP, richer than MVP. Patterns: Watch Live / Give / Events / Pastor / Ministries. MVP keeps these as <em>simple</em> modules.</p>
+      <h3>Builder visual direction (updated)</h3>
+      <p class="muted">James/CJ shared <strong>Sanctuary</strong> template examples for inside the builder — not the full custom WP sites. See next slide.</p>
+    </section>
+
+    <!-- TEMPLATES UPDATE -->
+    <section class="slide" id="s1b">
+      <div class="tag">Updated input · Builder templates</div>
+      <h2>Sanctuary template examples (for the builder)</h2>
+      <p class="muted" style="margin-bottom:0.5rem;">From team chat: <em>“template examples of possible websites to consider for inside of the builder.”</em> Source: <code>Downloads/tem</code> → copied to <code>templates/</code>.</p>
+      <div class="tpl-grid">
+        <div class="tpl-card">
+          <a href="templates/Sanctuary-Cornerstone-Full-Homepage.jpg" target="_blank" rel="noopener">
+            <img src="templates/Cornerstone-thumb.jpg" alt="Sanctuary Cornerstone template preview" />
+            <div class="meta">
+              <strong>Cornerstone</strong>
+              <span>River Valley Church sample · navy + teal · modern worship hero · Plan a Visit / Watch Online · icon rail · event + message cards · “Powered by The Church Online”</span>
+            </div>
+          </a>
+        </div>
+        <div class="tpl-card">
+          <a href="templates/Sanctuary-Heritage-Full-Homepage.jpg" target="_blank" rel="noopener">
+            <img src="templates/Heritage-thumb.jpg" alt="Sanctuary Heritage template preview" />
+            <div class="meta">
+              <strong>Heritage</strong>
+              <span>Grace Church sample · cream + olive + burnt orange · steeple/church photo hero · warmer traditional-modern mix · same block pattern (mission, messages, life together)</span>
+            </div>
+          </a>
+        </div>
+        <div class="tpl-card">
+          <a href="templates/Sanctuary-Riverside.jpg" target="_blank" rel="noopener">
+            <img src="templates/Riverside-thumb.jpg" alt="Sanctuary Riverside template preview" />
+            <div class="meta">
+              <strong>Riverside</strong>
+              <span>Oak Ridge Church sample · sage + coral · lifestyle/community hero · serif headline · Believe/Grow/Serve/Go · same sections, different personality</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <h3>How this changes my plan</h3>
+      <ul>
+        <li>MVP templates should share one <strong>section system</strong> (hero, icon rail, mission, messages/sermons, events, CTA band, footer) with <strong>theme tokens</strong> (colors, fonts, photo mood) — matches these three variants.</li>
+        <li>Target look is <strong>high-end but simpler than custom WP</strong> — still: Plan a Visit, Watch/Sermons, Events, Ministries, About.</li>
+        <li>Footer credit “Powered by The Church Online” is already in the comps — keep as platform brand on published sites.</li>
+        <li>POC updated to use these three names/palettes as selectable templates.</li>
+      </ul>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="slide" id="s2">
+      <div class="tag">Step 2 of 7</div>
+      <h2>2. How I’d build it — phases &amp; modules</h2>
+      <table>
+        <tr><th>Phase</th><th>Goal</th><th>Outcome</th></tr>
+        <tr><td><strong>Alpha</strong> (foundation)</td><td>Auth, tenancy, empty site shell, Amplify preview URL</td><td>One church can sign up and see a blank site</td></tr>
+        <tr><td><strong>Beta</strong> (builder)</td><td>Guided wizard, templates, pages, CMS edit, readiness, publish</td><td>Manual build path works end-to-end</td></tr>
+        <tr><td><strong>MVP+</strong> (AI &amp; ops)</td><td>Easy Button POC→prod, AI images, Stripe, SES, admin, analytics, support bot</td><td>Launchable product</td></tr>
+        <tr><td><strong>v1.1</strong></td><td>Prospect Studio, giving deeper, forms</td><td>Sales scale + retention</td></tr>
+      </table>
+      <h3>Module boundaries (parallelize the team)</h3>
+      <div class="grid3">
+        <div class="box"><strong>Platform</strong>Cognito · RBAC · multi-tenant DB · Amplify · Route 53 · SES · billing</div>
+        <div class="box"><strong>Builder UX</strong>Wizard · templates · editor · preview · readiness</div>
+        <div class="box"><strong>AI</strong>Scrape/map · content · event images · support RAG</div>
+      </div>
+      <p class="muted" style="margin-top:1rem;">Principle: prove risky modules as <strong>small POCs</strong> before they block the critical path (Ace’s recommendation from the roundtable).</p>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="slide" id="s3">
+      <div class="tag">Step 3 of 7</div>
+      <h2>3. High-level user flow</h2>
+      <p class="muted">Hybrid: short questions → template → pages → content (or Easy Button shortcut).</p>
+      <div class="flow">
+        <span>Marketing / Faithocity.com</span><span class="arrow">→</span>
+        <span>Sign up (email opt-in required)</span><span class="arrow">→</span>
+        <span>Church profile + AWWA</span>
+      </div>
+      <div class="flow">
+        <span>Path A: Guided wizard</span><span class="arrow">or</span>
+        <span>Path B: Easy Button (URL + ownership checkbox)</span>
+      </div>
+      <div class="flow">
+        <span>Pick template (4–6)</span><span class="arrow">→</span>
+        <span>Select pages</span><span class="arrow">→</span>
+        <span>Edit / AI fill</span><span class="arrow">→</span>
+        <span>Live preview</span>
+      </div>
+      <div class="flow">
+        <span>Readiness checklist</span><span class="arrow">→</span>
+        <span>Publish (subdomain)</span><span class="arrow">→</span>
+        <span>Optional CNAME / buy domain</span><span class="arrow">→</span>
+        <span>Return anytime (CMS)</span>
+      </div>
+      <h3>Internal actors</h3>
+      <ul>
+        <li><strong>Support:</strong> view-as-customer · credit with approval · ChatGPT bot on marketing/signup/backend/support</li>
+        <li><strong>Sales (later):</strong> Prospect Studio → private preview → transfer ownership</li>
+      </ul>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="slide" id="s4">
+      <div class="tag">Step 4 of 7</div>
+      <h2>4. Suggested stack</h2>
+      <div class="grid2">
+        <div class="box">
+          <strong>Named by leadership (locked direction)</strong>
+          <ul>
+            <li>Auth: <strong>AWS Cognito</strong></li>
+            <li>Hosting sites: <strong>AWS Amplify</strong></li>
+            <li>Email: <strong>AWS SES</strong></li>
+            <li>Domains: <strong>Route 53</strong> (explore)</li>
+            <li>Payments: likely <strong>Stripe</strong></li>
+            <li>Support AI: <strong>ChatGPT</strong> + our knowledge docs</li>
+            <li>AWS <strong>sub-account</strong> for cost isolation</li>
+          </ul>
+        </div>
+        <div class="box">
+          <strong>My recommendation (fits our team)</strong>
+          <ul>
+            <li>App: <strong>Next.js + TypeScript</strong></li>
+            <li>API: NestJS or Next route handlers</li>
+            <li>DB: <strong>PostgreSQL</strong> (tenant_id everywhere)</li>
+            <li>Cache/jobs: Redis + queue for scrape/AI</li>
+            <li>Media: S3 + image pipeline (WebP, crop, size caps)</li>
+            <li>Integrations: Google Calendar, YouTube embeds, Maps <em>links</em></li>
+            <li>URL model: <code>church.faithocity.com</code> wildcard (CNAME-safe)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:1rem;">Why Next.js: JC/CJ frontend strength + my Nest/Node background; SSR for public church pages; one repo for builder + marketing.</p>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="slide" id="s5">
+      <div class="tag">Step 5 of 7</div>
+      <h2>5. Hard parts &amp; blockers</h2>
+      <table>
+        <tr><th>Risk</th><th>Why it hurts</th><th>Mitigation</th></tr>
+        <tr><td>Easy Button scrape → template</td><td>Sites have odd pages/layouts; AI must map or drop content</td><td>POC first; confidence scores; human edit after</td></tr>
+        <tr><td>Multi-tenant analytics</td><td>Not separate hostings — must isolate per church</td><td>tenant_id on events; simple dashboard only</td></tr>
+        <tr><td>Live streaming embeds</td><td>Facebook URL changes; YouTube/BoxCast differ</td><td>MVP: YouTube/static embed + link-out; no FB embed</td></tr>
+        <tr><td>Image abuse / storage</td><td>Huge uploads; “free optimizer” behavior</td><td>Server-side resize; quotas by plan</td></tr>
+        <tr><td>Support bot actions</td><td>Refunds/credits need guardrails</td><td>Bot suggests; humans/manager approve money moves</td></tr>
+        <tr><td>Template count UX</td><td>4–6 may feel thin; 50 overwhelms</td><td>Start 4–6 quality; tier more later; AI templates if UX late</td></tr>
+      </table>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="slide" id="s6">
+      <div class="tag">Step 6 of 7</div>
+      <h2>6. What I’d POC first (before betting MVP)</h2>
+      <ol style="padding-left:1.2rem;">
+        <li style="margin:0.5rem 0;"><strong>Easy Button mapper</strong> — scrape 3 real church URLs → structured JSON (name, pastor, times, ministries) → drop into one template. Measure junk rate.</li>
+        <li style="margin:0.5rem 0;"><strong>Publish pipeline</strong> — Cognito user → site record → Amplify/static deploy → <code>*.faithocity.com</code> preview.</li>
+        <li style="margin:0.5rem 0;"><strong>Guided wizard UX</strong> — click-through only (see accompanying HTML POC) proving “no experience required.”</li>
+        <li style="margin:0.5rem 0;"><strong>Image pipeline</strong> — upload 10MB photo → WebP web sizes; reject/limit abuse.</li>
+        <li style="margin:0.5rem 0;"><strong>Stripe subscription skeleton</strong> — Starter checkout + webhook → feature flags.</li>
+      </ol>
+      <div class="box" style="margin-top:1rem;">
+        <strong>Delivered with this assessment</strong>
+        Simple HTML POC: guided steps · Easy Button mock · template switch · readiness checklist · fake publish.<br />
+        <span class="muted">Intentionally rough — proves flow, not production polish. Path: <code>faithocity-poc/index.html</code></span>
+      </div>
+    </section>
+
+    <!-- STEP 7 -->
+    <section class="slide" id="s7">
+      <div class="tag">Step 7 of 7</div>
+      <h2>7. Where I contribute</h2>
+      <div class="grid2">
+        <div class="box">
+          <strong>Best fit (lead / own)</strong>
+          <ul>
+            <li>Overall architecture &amp; multi-tenant data model</li>
+            <li>Auth / Cognito / RBAC (Owner, Editor, TCO roles)</li>
+            <li>APIs, PostgreSQL, billing (Stripe)</li>
+            <li>Publish / Amplify / domain CNAME flows</li>
+            <li>Payments security patterns (from BitGo / gaming wallets)</li>
+            <li>CI/CD, environments, AWS sub-account cost alerts</li>
+          </ul>
+        </div>
+        <div class="box">
+          <strong>Partner with</strong>
+          <ul>
+            <li><strong>JC:</strong> AI scrape, event images, support bot RAG</li>
+            <li><strong>CJ:</strong> Builder UI, templates, guided UX</li>
+            <li><strong>Aljon:</strong> Heavy backend modules, Docker/AWS glue</li>
+            <li><strong>Bob/Ryan/UX:</strong> faith visual system, template Figma</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1rem;">Background: 15+ years full stack (healthcare Teladoc/UHS, Sportsbet, BitGo). Strongest on backend, auth, money systems, real-time — happy to project-lead the foundation while we stay collaborative on product calls.</p>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="slide" id="s8">
+      <div class="tag">Close</div>
+      <h2>Open questions for leadership</h2>
+      <ol style="padding-left:1.2rem;">
+        <li style="margin:0.45rem 0;">Official brand spelling / domain: Faithocity vs Faithosity?</li>
+        <li style="margin:0.45rem 0;">Is Prospect Studio in v1 or firmly v1.1?</li>
+        <li style="margin:0.45rem 0;">Accessibility required on every generated church site, or marketing platform only?</li>
+        <li style="margin:0.45rem 0;">May the support bot ever issue credits, or always escalate money actions?</li>
+        <li style="margin:0.45rem 0;">Target date for first internal dogfood publish?</li>
+        <li style="margin:0.45rem 0;">Monday PH holiday — confirm presentation slot with Faye?</li>
+      </ol>
+      <h3 style="margin-top:1.25rem;">Ask from me</h3>
+      <p>For this planning week: ChatGPT or Claude access + confirmation of Cognito/Amplify sandbox in the Faithocity AWS sub-account.</p>
+      <p class="muted" style="margin-top:1.5rem;">Thank you — ready to merge with JC, CJ, and Aljon’s plans on Monday.</p>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faithocity POC — Guided Builder (simple)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Faithocity <span>POC</span></div>
+    <p class="disclaimer">Proof of concept only — rough &amp; simple. Not production. Ace · Monday assessment</p>
+  </header>
+
+  <main class="layout">
+    <aside class="rail">
+      <h2>Build path</h2>
+      <ol id="steps" class="steps"></ol>
+      <div class="rail-note">
+        Demonstrates: guided setup · Easy Button mock · template switch · readiness · fake publish
+      </div>
+    </aside>
+
+    <section class="panel">
+      <div id="view"></div>
+    </section>
+
+    <aside class="preview">
+      <div class="preview-bar">
+        <span>Live preview</span>
+        <select id="templateSelect" aria-label="Template"></select>
+      </div>
+      <iframe id="frame" title="Church site preview"></iframe>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
